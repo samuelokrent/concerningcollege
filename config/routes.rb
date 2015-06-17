@@ -1,10 +1,29 @@
 Myapp::Application.routes.draw do
+
   get "home/index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root to: 'home#index'
+root to: 'posts#index'
+
+
+  resources :posts
+
+  get "static_pages/about"
+  get "static_pages/contact"
+  patch "static_pages/update" => 'static_pages#update'
+  get "session/new"
+  post "session/create" => "session#create"
+  delete "session/destroy" => "session#destroy"
+  get "login" => "session#new"
+
+  get "passwords/change" => "passwords#change"
+  post "passwords/update" => "passwords#update"
+
+  get ":post_url" => "posts#show_url"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

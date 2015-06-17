@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DigitalOcean Rails Application</title>
+  <title>Concerning College</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class = "wrapper">
+  <div class = "headdiv">
+    <p class = "headtext">Concerning College</p>
+    <p class = "headtext headsubtext">by Mark Lerner</p>
+  </div>
+  <div class = "bodydiv">
+    <table class = "bodytable">
+      <tr>
+        <td class = "bodytd" id = "sidetd">
+          <div class = "sidediv">
+            <div class = "linkdiv l1">
+              <div class = "linkwrapper"><%= link_to "HOME", posts_path %></div>
+            </div>
+            <div class = "divider"></div>
+            <div class = "linkdiv l2">
+              <div class = "linkwrapper"><%= link_to "ABOUT", static_pages_about_path %></div>
+            </div>
+            <div class = "divider"></div>
+            <div class = "linkdiv l3">
+              <div class = "linkwrapper"><%= link_to "CONTACT", static_pages_contact_path %></div>
+            </div>
+          </div>
+        </td>
 
+        <td class = "bodytd" id = "maintd">
+          <div class = "maindiv">
+            <% if session[:admin] == true %>
+                <div class = "nav_div">
+                  <%= link_to "New Post", new_post_path, :class => "nav_link" %>
+                  <%= link_to "Change Password", passwords_change_path, :class => "nav_link"%>
+                  <%= link_to "Logout", session_destroy_path, :method => :delete, :class => "nav_link" %>
+                </div>
+            <% end %>
+            <%= yield %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class = "footer">Authored by Mark Lerner</div>
+</div>
 </body>
 </html>

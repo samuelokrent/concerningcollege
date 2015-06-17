@@ -1,0 +1,15 @@
+<div class = "post_div">
+  <% if session[:admin] == true %>
+      <div class = "nav_div">
+        <%= link_to "Delete Post", post_path(post), :method => :delete, :class => "nav_link" %>
+        <%= link_to "Edit Post", edit_post_path(post), :class => "nav_link" %>
+      </div>
+  <% end %>
+  <p class = "title_text"><a class = "title_text" href = "/<%= post.url %>"><%= post.title %></a></p>
+  <p class = "byline_text"><%= post.created_at.strftime("Posted on %A, %B %e") %></p>
+  <div class = "little_divider"></div>
+  <%= simple_format post.content, :class => "content_text" %>
+</div>
+<div class = "share_text">Share this article: <%= "ConcerningCollege.com/#{post.url}" %></div>
+<div class = "comments_link"><a class = "comments_link" href = "/<%= post.url %>">View Comments</a></div>
+<div class = "divider"></div>

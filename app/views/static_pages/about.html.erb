@@ -1,0 +1,8 @@
+<% if flash.any? %>
+    <p class = "info"><%= flash[:info] %></p>
+<% end %>
+<% if @is_admin %>
+    <%= render "form", :blurb => @blurb %>
+<% else %>
+    <%= render "blurb", :blurb => @blurb %>
+<% end %>

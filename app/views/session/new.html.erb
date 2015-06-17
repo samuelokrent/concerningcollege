@@ -1,0 +1,11 @@
+<div class = "form_div">
+  <p class = "title_text">Log In</p>
+  <%= form_for @password, url: session_create_url do |f| %>
+      <p class = "form_label">Please Enter Password</p>
+      <%= f.password_field :password %>
+
+      <br>
+
+      <%= f.submit "Log In" %>
+  <% end %>
+</div>

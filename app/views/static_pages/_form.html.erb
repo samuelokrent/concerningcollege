@@ -1,0 +1,13 @@
+<div class = "form_div">
+  <p class = "title_text">Update Blurb: <%= blurb.page %></p>
+  <%= form_for blurb, url: { :controller => "static_pages", :action => "update"} do |f| %>
+      <p class = "form_label">Content:</p>
+      <%= f.text_area :content, :rows => "10", :cols => "30" %>
+
+      <%= hidden_field_tag :id, blurb.id %>
+
+      <br>
+
+      <%= f.submit "Update" %>
+  <% end %>
+</div>

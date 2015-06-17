@@ -1,0 +1,23 @@
+<div class = "form_div">
+  <% if post.errors.any? %>
+  <div class = "error_message_div">
+    <ul>
+    <% post.errors.each do |e, message| %>
+        <li class = "error_message">Submission error: <%= "#{e} #{message}" %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= form_for post, url: { controller: "posts", action: action}  do |f|%>
+
+      <p class = "form_label">Title</p>
+      <%= f.text_field :title %>
+
+      <p class = "form_label">Content</p>
+      <%= f.text_area :content, :rows => "20", :cols => "40" %>
+
+      <br>
+
+      <%= f.submit submit_text %>
+  <% end %>
+</div>

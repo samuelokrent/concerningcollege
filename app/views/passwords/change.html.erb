@@ -1,0 +1,19 @@
+<div class = "form_div">
+  <p class = "title_text">Change Password</p>
+  <% if flash.any? %>
+      <% flash.each do |k, v| %>
+        <p class = "error_message"><%= v %></p>
+      <% end %>
+  <% end %>
+  <%= form_for @password, url: { controller: "passwords", action: "update"} do |f| %>
+      <p class = "form_label">New Password</p>
+      <%= f.password_field :password %>
+
+      <p class = "form_label">Confirm Password</p>
+      <%= f.password_field :confirmation %>
+
+      <br>
+
+      <%= f.submit "Change Password" %>
+  <% end %>
+</div>
