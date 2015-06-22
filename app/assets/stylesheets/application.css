@@ -249,7 +249,7 @@ input[type=submit] {
     height: 100%;
 }
 
-.form_div input[type=text] {
+input[type=text], input[type=password] {
     width: 40%;
     height: 30px;
     margin-left: 30%;
