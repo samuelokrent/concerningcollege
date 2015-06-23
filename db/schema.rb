@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611203653) do
+ActiveRecord::Schema.define(version: 20150622210651) do
 
   create_table "blurbs", force: true do |t|
     t.string   "page"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20150611203653) do
   end
 
   add_index "blurbs", ["page"], name: "index_blurbs_on_page", using: :btree
+
+  create_table "hits", force: true do |t|
+    t.integer  "hits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "passwords", force: true do |t|
     t.string   "digest"

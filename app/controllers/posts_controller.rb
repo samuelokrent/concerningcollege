@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_action :increment_hits
   before_action :admin_login_required, :except => [:index, :show, :show_url]
 
   def index
@@ -54,5 +55,16 @@ class PostsController < ApplicationController
     Post.find(params[:id]).destroy
     @posts = Post.all.order("created_at desc")
     render "index"
+  end
+
+  def increment_hits
+    puts "increment_hits called"
+    unless session[:hit_counted] == "true"
+      session[:hit_counted] = "true"
+      hits = Hit.first
+      hits.hits += 1
+      hits.save
+      puts "New Hits: #{hits.hits}"
+    end
   end
 end

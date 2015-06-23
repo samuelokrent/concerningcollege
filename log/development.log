@@ -37069,3 +37069,1206 @@ ActionController::RoutingError (No route matches [GET] "/passwords/favicon.ico")
   Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
   Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
   Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateHits (20150622210651)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateHits (20150622210651)
+  [1m[35m (8142.5ms)[0m  CREATE TABLE `hits` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `hits` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150622210651')
+  [1m[36m (269.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:29:32 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (29.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.5ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (37.0ms)
+  Rendered posts/_post_div.html.erb (0.3ms)
+  Rendered posts/_post_div.html.erb (0.3ms)
+  Rendered posts/_post_div.html.erb (0.3ms)
+  Rendered posts/index.html.erb within layouts/application (85.9ms)
+  [1m[35mBlurb Load (0.6ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`title` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+Mysql2::Error: Unknown column 'blurbs.title' in 'where clause': SELECT  `blurbs`.* FROM `blurbs`  WHERE `blurbs`.`title` = 'About'  ORDER BY `blurbs`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 332ms
+
+ActionView::Template::Error (Mysql2::Error: Unknown column 'blurbs.title' in 'where clause': SELECT  `blurbs`.* FROM `blurbs`  WHERE `blurbs`.`title` = 'About'  ORDER BY `blurbs`.`id` ASC LIMIT 1):
+    2: <html>
+    3: <head>
+    4:   <title>Concerning College</title>
+    5:   <meta name="description" content="<%= Blurb.where(:title => "About").first.content %>" >
+    6:   <meta name="keywords" content="concerning college, college, Mark Lerner, Sun Current" >
+    7:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    8:   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___3224816997017366828_2159899560'
+
+
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:30:30 -0500
+Processing by PostsController#index as HTML
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+  [1m[36mBlurb Load (0.9ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 215ms (Views: 210.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:30:31 -0500
+
+
+Started GET "/login" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+Processing by SessionController#new as HTML
+  Rendered session/new.html.erb within layouts/application (34.7ms)
+  [1m[35mBlurb Load (0.5ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+Completed 200 OK in 82ms (Views: 45.3ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:37 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:30:38 -0500
+
+
+Started POST "/session/create" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y3t5gIeB8iL0LHcdDa6YUMtiIC80phHTE+q+VSrQFXM=", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mPassword Load (0.5ms)[0m  [1mSELECT `passwords`.* FROM `passwords` ORDER BY `passwords`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (0.7ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:30:41 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:31:34 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:35:17 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.2ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 500 Internal Server Error in 23ms
+
+NoMethodError (undefined method `+@' for true:TrueClass):
+  app/controllers/posts_controller.rb:66:in `increment_hits'
+
+
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/SamuelOkrent/.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+Processing by PostsController#index as HTML
+  [1m[36mHit Load (0.2ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (51.4ms)[0m  [1mUPDATE `hits` SET `hits` = 1, `updated_at` = '2015-06-23 18:36:06' WHERE `hits`.`id` = 1[0m
+  [1m[35m (17.8ms)[0m  COMMIT
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (8.8ms)
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (25.3ms)
+  [1m[35mBlurb Load (0.3ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 179ms (Views: 87.4ms | ActiveRecord: 78.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:06 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `hits` SET `hits` = 2, `updated_at` = '2015-06-23 18:36:08' WHERE `hits`.`id` = 1
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (0.7ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (5.9ms)
+  [1m[36mBlurb Load (0.3ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:08 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+Processing by PostsController#index as HTML
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `hits` SET `hits` = 3, `updated_at` = '2015-06-23 18:36:10' WHERE `hits`.`id` = 1[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (0.7ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.7ms)
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:10 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.2ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `hits` SET `hits` = 4, `updated_at` = '2015-06-23 18:36:26' WHERE `hits`.`id` = 1
+  [1m[36m (58.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (0.8ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/index.html.erb within layouts/application (12.8ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 200 OK in 103ms (Views: 24.5ms | ActiveRecord: 67.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:26 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/index.html.erb within layouts/application (6.2ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:27 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (1.0ms)
+  Rendered posts/_post_div.html.erb (0.9ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (7.2ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:28 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (4.1ms)
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/index.html.erb within layouts/application (18.4ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+  [1m[35mHit Load (0.2ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 200 OK in 111ms (Views: 92.7ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:42 -0500
+
+
+Started GET "/hello--world-" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+Processing by PostsController#show_url as HTML
+  Parameters: {"post_url"=>"hello--world-"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`url` = 'hello--world-' ORDER BY `posts`.`id` ASC LIMIT 1[0m
+  Rendered posts/_post_div.html.erb (0.9ms)
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 56ms (Views: 52.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:36:55 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:56 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:57 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:36:57 -0500
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/_post_div.html.erb (0.4ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:37:02 -0500
+
+
+Started GET "/unique-title" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+Processing by PostsController#show_url as HTML
+  Parameters: {"post_url"=>"unique-title"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`url` = 'unique-title' ORDER BY `posts`.`id` ASC LIMIT 1[0m
+  Rendered posts/_post_div.html.erb (0.8ms)
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mHit Load (0.3ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:37:06 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:37:07 -0500
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-06-23 13:37:07 -0500
+
+
+Started DELETE "/session/destroy" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+Processing by SessionController#destroy as HTML
+  Parameters: {"authenticity_token"=>"y3t5gIeB8iL0LHcdDa6YUMtiIC80phHTE+q+VSrQFXM="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/index.html.erb within layouts/application (6.0ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:37:13 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:32 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:32 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:32 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:32 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:32 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:37:32 -0500
+
+
+Started GET "/login" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+Processing by SessionController#new as HTML
+  Rendered session/new.html.erb within layouts/application (42.7ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+Completed 200 OK in 300ms (Views: 52.3ms | ActiveRecord: 234.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:17 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/login" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+Processing by SessionController#new as HTML
+  Rendered session/new.html.erb within layouts/application (0.7ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:18 -0500
+
+
+Started POST "/session/create" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y3t5gIeB8iL0LHcdDa6YUMtiIC80phHTE+q+VSrQFXM=", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[35mPassword Load (0.3ms)[0m  SELECT `passwords`.* FROM `passwords` ORDER BY `passwords`.`id` ASC LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` ORDER BY created_at desc[0m
+  Rendered posts/_post_div.html.erb (0.8ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.7ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (6.1ms)
+  [1m[35mBlurb Load (0.4ms)[0m  SELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1
+  [1m[36mHit Load (0.5ms)[0m  [1mSELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:21 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (0.6ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/_post_div.html.erb (0.5ms)
+  Rendered posts/index.html.erb within layouts/application (5.7ms)
+  [1m[36mBlurb Load (0.4ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/passwords.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/session.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/passwords.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-23 13:38:30 -0500

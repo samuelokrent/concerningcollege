@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Concerning College</title>
+  <meta name="description" content="<%= Blurb.where(:page => "About").first.content %>" >
+  <meta name="keywords" content="concerning college, college, Mark Lerner, Sun Current" >
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -39,6 +41,7 @@
         <td class = "bodytd" id = "maintd">
           <div class = "maindiv">
             <% if session[:admin] == true %>
+                <div class = "hits_div">Hits: <%= Hit.first.hits %></div>
                 <div class = "nav_div">
                   <%= link_to "New Post", new_post_path, :class => "nav_link" %>
                   <%= link_to "Change Password", passwords_change_path, :class => "nav_link"%>
