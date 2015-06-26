@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   before_action :increment_hits
   before_action :admin_login_required, :except => [:index, :show, :show_url]
+  after_action :backup_db, :only => [:create, :update, :destroy]
 
   def index
     @posts = Post.all.order("created_at desc")
@@ -66,5 +67,9 @@ class PostsController < ApplicationController
       hits.save
       puts "New Hits: #{hits.hits}"
     end
+  end
+
+  def backup_db
+    system "mysqldump -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > #{ENV['RAILS_ENV']}_db_backup.sql"
   end
 end
