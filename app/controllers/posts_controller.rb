@@ -69,7 +69,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def choose_revert
+    @backups = Backup.order("created_at desc").all
+  end
+
+  def revert
+    backup = Backup.find(params[:backup_id])
+    system "mysql -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} < db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}" if !backup.nil?
+    redirect_to root_path
+  end
+
   def backup_db
-    system "mysqldump -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > #{ENV['RAILS_ENV']}_db_backup.sql"
+    backup = Backup.create
+    puts "mysqldump -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}"
+    system "mysqldump -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}"
   end
 end

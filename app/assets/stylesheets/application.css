@@ -124,14 +124,22 @@ tr {
 .hits_div {
     margin: 0;
     padding: 0;
-    font-size: 18px;
-    color: #6666cc;
+    padding-top: 10px;
+    font-size: 24px;
+    color: #6666aa;
+    background-color: #999999;
+    width: 100px;
+    height: 40px;
+    border-radius: 2px;
+    text-align: center;
 }
 
 .nav_div {
     margin: 0;
     padding: 0;
     text-align: right;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #999999;
 }
 
 .nav_link {
@@ -286,4 +294,21 @@ input[type=text], input[type=password] {
     border: 1 px solid #666666;
     color: #333366;
     cursor: pointer;
+}
+
+.backup_list {
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+.backup_link {
+    text-decoration: none;
+    color: #ff6666;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.backup_link:hover {
+    color: #66aa66;
 }

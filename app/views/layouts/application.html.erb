@@ -45,6 +45,7 @@
                 <div class = "nav_div">
                   <%= link_to "New Post", new_post_path, :class => "nav_link" %>
                   <%= link_to "Change Password", passwords_change_path, :class => "nav_link"%>
+                  <%= link_to "Database Reversion", choose_revert_posts_path, :class => "nav_link" %>
                   <%= link_to "Logout", session_destroy_path, :method => :delete, :class => "nav_link" %>
                 </div>
             <% end %>

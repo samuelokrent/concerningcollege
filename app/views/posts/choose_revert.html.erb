@@ -1,0 +1,10 @@
+<p class = "title_text">Revert database to previous state.</p>
+<p class = "title_text">Please select the time to revert to.</p>
+<p class = "title_text">(Contact webmaster to undo reversion)</p>
+<ul class = "backup_list">
+  <% @backups.each do |backup| %>
+    <li class = "backup_li">
+      <%= link_to backup.display_name, revert_posts_path(:backup_id => backup.id), :class => "backup_link" %>
+    </li>
+  <% end %>
+</ul>

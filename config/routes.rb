@@ -9,7 +9,12 @@ Myapp::Application.routes.draw do
 root to: 'posts#index'
 
 
-  resources :posts
+  resources :posts do
+    collection do
+      get 'choose_revert'
+      get 'revert'
+    end
+  end
 
   get "static_pages/about"
   get "static_pages/contact"
