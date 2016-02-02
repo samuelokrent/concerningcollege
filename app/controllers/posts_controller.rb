@@ -75,13 +75,13 @@ class PostsController < ApplicationController
 
   def revert
     backup = Backup.find(params[:backup_id])
-    system "mysql -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} < db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}" if !backup.nil?
+    system "mysql -uroot -pCsmok2396! #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} < db/backups/#{ENV['RAILS_ENV'] == 'development' ? 'development' : 'production'}/#{backup.filename}" if !backup.nil?
     redirect_to root_path
   end
 
   def backup_db
     backup = Backup.create
-    puts "mysqldump -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}"
-    system "mysqldump -uroot #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}"
+    puts "mysqldump -uroot -pCsmok2396! #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > db/backups/#{ENV['RAILS_ENV']}/#{backup.filename}"
+    system "mysqldump -uroot -pCsmok2396! #{ENV['RAILS_ENV'] == 'development' ? 'concerning_college_development' : 'rails'} > db/backups/#{ENV['RAILS_ENV'] == 'development' ? 'development' : 'production'}/#{backup.filename}"
   end
 end

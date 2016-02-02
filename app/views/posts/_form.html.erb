@@ -1,23 +1,33 @@
 <div class = "form_div">
-  <% if post.errors.any? %>
-  <div class = "error_message_div">
-    <ul>
-    <% post.errors.each do |e, message| %>
-        <li class = "error_message">Submission error: <%= "#{e} #{message}" %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <%= form_for post, url: { controller: "posts", action: action}  do |f|%>
+	<p class = "form_label">Instructions:</p>
+	<ol class = "instructions">
+		<li> Open up your internet browser, and go to Google.com </li>
+		<li> Search Google for something like "edina sun current mark lerner", and find the column you're looking for</li>
+		<li> Highlight the title of the article, and then click "Edit" at the top of the computer screen, and then "Copy"</li>
+		<li> Click on the ConcerningCollege tab to get back to the New Post page you already have open</li>
+		<li> Click inside the "Title" box, click "Edit" at the top of your screen, and then "Paste"</li>
+		<li> Repeat this process for the body of the column, copying and pasting into the "Content" box</li>
+		<li> IMPORTANT! Click "Create new post" at the bottom of the page to actually submit the post</li>
+	</ol>
+	<% if post.errors.any? %>
+	<div class = "error_message_div">
+		<ul>
+		<% post.errors.each do |e, message| %>
+				<li class = "error_message">Submission error: <%= "#{e} #{message}" %></li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<%= form_for post, url: { controller: "posts", action: action}	do |f|%>
 
-      <p class = "form_label">Title</p>
-      <%= f.text_field :title %>
+			<p class = "form_label">Title</p>
+			<%= f.text_field :title %>
 
-      <p class = "form_label">Content</p>
-      <%= f.text_area :content, :rows => "20", :cols => "40" %>
+			<p class = "form_label">Content</p>
+			<%= f.text_area :content, :rows => "20", :cols => "40" %>
 
-      <br>
+			<br>
 
-      <%= f.submit submit_text %>
-  <% end %>
+			<%= f.submit submit_text %>
+	<% end %>
 </div>

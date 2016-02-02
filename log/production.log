@@ -10271,3 +10271,5 @@ I, [2015-06-22T20:31:10.298464 #5415]  INFO -- :   Rendered posts/_post_div.html
 I, [2015-06-22T20:31:10.299680 #5415]  INFO -- :   Rendered posts/_post_div.html.erb (1.0ms)
 I, [2015-06-22T20:31:10.299919 #5415]  INFO -- :   Rendered posts/index.html.erb within layouts/application (12.8ms)
 I, [2015-06-22T20:31:10.303489 #5415]  INFO -- : Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 0.6ms)
+I, [2015-06-29T21:29:21.448143 #13197]  INFO -- : Migrating to CreateHits (20150622210651)
+I, [2015-06-29T21:29:21.462174 #13197]  INFO -- : Migrating to CreateBackups (20150629153829)

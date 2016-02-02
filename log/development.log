@@ -42713,3 +42713,97 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-29 16:21:49
 
 
 Started GET "/assets/session.js?body=1" for 127.0.0.1 at 2015-06-29 16:21:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (7.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateHits (20150622210651)
+  [1m[35m (1.9ms)[0m  CREATE TABLE `hits` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `hits` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'hits' already exists: CREATE TABLE `hits` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `hits` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateHits (20150622210651)
+  [1m[35m (5.7ms)[0m  CREATE TABLE `hits` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `hits` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150622210651')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBackups (20150629153829)
+  [1m[35m (1.6ms)[0m  CREATE TABLE `backups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150629153829')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 98.222.210.68 at 2015-06-29 21:29:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.6ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError (undefined method `hits' for nil:NilClass):
+  app/controllers/posts_controller.rb:66:in `increment_hits'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.9ms)
+
+
+Started GET "/" for 98.222.210.68 at 2015-06-29 21:30:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  [1m[35mHit Load (0.3ms)[0m  SELECT `hits`.* FROM `hits` ORDER BY `hits`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE `hits` SET `hits` = 1, `updated_at` = '2015-06-29 21:30:41' WHERE `hits`.`id` = 1
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts` ORDER BY created_at desc
+  Rendered posts/_post_div.html.erb (3.7ms)
+  Rendered posts/_post_div.html.erb (0.3ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/_post_div.html.erb (0.2ms)
+  Rendered posts/index.html.erb within layouts/application (20.8ms)
+  [1m[36mBlurb Load (0.1ms)[0m  [1mSELECT `blurbs`.* FROM `blurbs` WHERE `blurbs`.`page` = 'About' ORDER BY `blurbs`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 280ms (Views: 245.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/home.css?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/passwords.css?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/application.css?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/static_pages.css?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/session.css?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/home.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/passwords.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/session.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/static_pages.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/application.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 98.222.210.68 at 2015-06-29 21:30:41 +0000
+
+
+Started GET "/assets/favicon.ico" for 98.222.210.68 at 2015-06-29 21:30:42 +0000

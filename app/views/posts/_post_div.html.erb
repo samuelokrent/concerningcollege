@@ -6,10 +6,11 @@
       </div>
   <% end %>
   <p class = "title_text"><a class = "title_text" href = "/<%= post.url %>"><%= post.title %></a></p>
-  <p class = "byline_text"><%= post.created_at.strftime("Posted on %A, %B %e") %></p>
+  <p class = "byline_text"><%= post.created_at.strftime("Posted on %A, %B %e, %Y") %></p>
   <div class = "little_divider"></div>
   <%= simple_format post.content, :class => "content_text" %>
 </div>
+<div class = "comments_link" style = "margin-bottom: 10px;"><a class = "comments_link" href = "mailto:concerningcollege@gmail.com">Email the Author</a></div>
 <div class = "share_text">Share this article: <%= "ConcerningCollege.com/#{post.url}" %></div>
 <div class = "comments_link"><a class = "comments_link" href = "/<%= post.url %>">View Comments</a></div>
 <div class = "divider"></div>
